@@ -1,0 +1,12 @@
+const SuccessStatus = {
+  SUCCESS: 200,               // Standard success code
+  CREATED: 201, 
+  SUCCESS_CONNECT: 'SUCCESS_CONNECT',
+  SUCCESS_TRAIN: 'SUCCESS_TRAIN',
+  SUCCESS_GET: 'SUCCESS_GET',
+  SUCCESS_CREATE: 'SUCCESS_CREATE',
+  SUCCESS_UPDATE: 'SUCCESS_UPDATE',
+  SUCCESS_DELETE: 'SUCCESS_DELETE',
+}
+
+export default SuccessStatus

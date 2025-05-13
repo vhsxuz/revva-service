@@ -1,0 +1,143 @@
+// This is your complete Prisma schema file
+// Learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Generator and datasource
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Items model
+model Items {
+  id         String   @id @unique @default(uuid())
+  name       String
+  stock      Int
+  created_at DateTime @default(now())
+}
+
+// MenuCategory model
+model MenuCategory {
+  id         String   @id @unique @default(uuid())
+  name       String
+  created_at DateTime @default(now())
+
+  menu Menu[]
+}
+
+// Menu model
+model Menu {
+  id                String   @id @unique @default(uuid())
+  name              String
+  menu_category_id  String
+  rating            Decimal
+  description       String
+  production_cost   Int
+  price             Int
+  margin            Int
+  monthly_revenue   Int
+  monthly_profit    Int
+  stock_serving     Int
+  prep_time_minutes Int
+  last_restocked    DateTime
+  created_at        DateTime @default(now())
+
+  menuCategory       MenuCategory        @relation(fields: [menu_category_id], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  transactionDetails TransactionDetail[]
+}
+
+// EmployeePosition model
+model EmployeePosition {
+  id         String   @id @unique @default(uuid())
+  name       String
+  created_at DateTime @default(now())
+
+  employee Employee[]
+}
+
+// EmployeeStatus model
+model EmployeeStatus {
+  id         String   @id @unique @default(uuid())
+  name       String
+  created_at DateTime @default(now())
+
+  employee Employee[]
+}
+
+// Employee model
+model Employee {
+  id                   String   @id @unique @default(uuid())
+  name                 String
+  phone_number         String
+  employee_position_id String
+  employee_status_id   String
+  created_at           DateTime @default(now())
+
+  employeePosition EmployeePosition    @relation(fields: [employee_position_id], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  employeeStatus   EmployeeStatus      @relation(fields: [employee_status_id], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  transactions     TransactionHeader[]
+}
+
+// Referral model
+model Referral {
+  id           String   @id @unique @default(uuid())
+  referrerId   String
+  referredId   String
+  rewardPoints Int      @default(0)
+  created_at   DateTime @default(now())
+
+  referrer     User @relation(name: "ReferrerRelation", fields: [referrerId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  referredUser User @relation(name: "ReferredRelation", fields: [referredId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+}
+
+// User model
+model User {
+  id            String   @id @unique @default(uuid())
+  firebase_uid  String   @unique
+  name          String
+  email         String
+  role          String
+  referral_code String   @unique
+  created_at    DateTime @default(now())
+
+  referralsMade Referral[] @relation(name: "ReferrerRelation")
+  referralsGot  Referral[] @relation(name: "ReferredRelation")
+}
+
+// PaymentType model
+model PaymentType {
+  id         String   @id @unique @default(uuid())
+  name       String
+  created_at DateTime @default(now())
+
+  transactions TransactionHeader[]
+}
+
+// TransactionHeader model
+model TransactionHeader {
+  id               String   @id @unique @default(uuid())
+  employee_id      String
+  payment_type_id  String
+  transaction_date DateTime
+  created_at       DateTime @default(now())
+
+  employee    Employee            @relation(fields: [employee_id], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  paymentType PaymentType         @relation(fields: [payment_type_id], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  details     TransactionDetail[]
+}
+
+// TransactionDetail model
+model TransactionDetail {
+  id             String   @id @unique @default(uuid())
+  transaction_id String
+  menu_id        String
+  quantity       Int
+  created_at     DateTime @default(now())
+
+  transaction TransactionHeader @relation(fields: [transaction_id], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  menu        Menu              @relation(fields: [menu_id], references: [id], onUpdate: Cascade, onDelete: Cascade)
+}

@@ -1,0 +1,613 @@
+{
+	"info": {
+		"_postman_id": "98bbf233-807d-4216-8915-94519bb854cc",
+		"name": "Revva",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42589731"
+	},
+	"item": [
+		{
+			"name": "Health",
+			"item": [
+				{
+					"name": "health check",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/health/check",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"health",
+								"check"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Menu",
+			"item": [
+				{
+					"name": "get all menu",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/menu/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get menu by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/menu/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "fa09e77a-ba3f-46ed-a22f-d2faf6812b66"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search menu",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/menu/search?keyword=es",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								"search"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "es"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new menu",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Luwak White Coffee\",\n  \"menu_category_id\": \"44364a4b-180d-40f5-bb5c-d417e23418d4\",\n  \"rating\": 4.8,\n  \"description\": \"Premium coffee made from civet-processed beans with creamy milk texture\",\n  \"production_cost\": 25000,\n  \"price\": 40000,\n  \"margin\": 15000, \n  \"prep_time_minutes\": 7,\n  \"stock_serving\": 20,\n  \"last_restocked\": \"2025-05-10T09:00:00Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/menu/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Luwak White Coffee\",\n  \"menu_category_id\": \"44364a4b-180d-40f5-bb5c-d417e23418d4\",\n  \"rating\": 4.9,\n  \"description\": \"Premium coffee made from civet-processed beans with creamy milk texture\",\n  \"production_cost\": 25000,\n  \"price\": 40000,\n  \"margin\": 15000, \n  \"prep_time_minutes\": 7,\n  \"stock_serving\": 20,\n  \"last_restocked\": \"2025-05-10T09:00:00Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/menu/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "b7eafdad-f346-4e38-91a0-8aa63bff6a73"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Luwak White Coffee\",\n  \"menu_category_id\": \"44364a4b-180d-40f5-bb5c-d417e23418d4\",\n  \"rating\": 4.9,\n  \"description\": \"Premium coffee made from civet-processed beans with creamy milk texture\",\n  \"production_cost\": 25000,\n  \"price\": 40000,\n  \"margin\": 15000, \n  \"prep_time_minutes\": 7,\n  \"stock_serving\": 20,\n  \"last_restocked\": \"2025-05-10T09:00:00Z\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/menu/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "b7eafdad-f346-4e38-91a0-8aa63bff6a73"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "get all employee",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/employee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search employee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/employee/search?keyword=John",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"search"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "John"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get employee by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/employee/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "57388cae-4596-4510-9a90-4cd519de2cbe"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Andreas Alexander\",\n    \"phone_number\": \"+62 878 7819 7989\",\n    \"employee_position_id\": \"2f5ac2eb-43e6-4a28-b55b-f1b27f4ee225\",\n    \"employee_status_id\": \"c2a749f6-f5ad-491e-bea2-d215bcec38ff\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/employee/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update employee",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Andreas Buchiarrati\",\n    \"phone_number\": \"+62 878 7819 7989\",\n    \"employee_position_id\": \"2f5ac2eb-43e6-4a28-b55b-f1b27f4ee225\",\n    \"employee_status_id\": \"c2a749f6-f5ad-491e-bea2-d215bcec38ff\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/employee/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "0a6009d8-fdde-4105-a5c5-48391a18667a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete employee",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Andreas Buchiarrati\",\n    \"phone_number\": \"+62 878 7819 7989\",\n    \"employee_position_id\": \"2f5ac2eb-43e6-4a28-b55b-f1b27f4ee225\",\n    \"employee_status_id\": \"c2a749f6-f5ad-491e-bea2-d215bcec38ff\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/employee/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "0a6009d8-fdde-4105-a5c5-48391a18667a"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "get all transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add new transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"employee_id\": \"57388cae-4596-4510-9a90-4cd519de2cbe\",\n  \"payment_type_id\": \"75638d4a-b2f2-4c4c-bb0d-302e93df2531\",\n  \"transaction_date\": \"2023-11-25T14:30:00Z\",\n  \"items\": [\n    {\n      \"menu_id\": \"39d50d8f-8b25-4123-a93a-3e76613102c3\",\n      \"quantity\": 2\n    },\n    {\n      \"menu_id\": \"42cc1bc6-6bb4-43d7-8fe2-06bfdac40fba\",\n      \"quantity\": 1\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get transaction by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"employee_id\": \"57388cae-4596-4510-9a90-4cd519de2cbe\",\n  \"payment_type_id\": \"75638d4a-b2f2-4c4c-bb0d-302e93df2531\",\n  \"transaction_date\": \"2023-11-25T14:30:00Z\",\n  \"items\": [\n    {\n      \"menu_id\": \"39d50d8f-8b25-4123-a93a-3e76613102c3\",\n      \"quantity\": 2\n    },\n    {\n      \"menu_id\": \"42cc1bc6-6bb4-43d7-8fe2-06bfdac40fba\",\n      \"quantity\": 1\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/transaction/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"transaction",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "af76df81-bdef-4bd4-98a4-7a0a190d0710"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "get user by firebase id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/user/:firebase_uid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								":firebase_uid"
+							],
+							"variable": [
+								{
+									"key": "firebase_uid",
+									"value": "V7hSEchTvwZzhKVqbt3CHTuHAuy2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user referrals",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/user/my-referrals/:referrer_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"my-referrals",
+								":referrer_id"
+							],
+							"variable": [
+								{
+									"key": "referrer_id",
+									"value": "7609ed44-706c-4269-a590-d37a97858f6b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Hendro Kurniawan\",\n    \"firebase_uid\": \"H1kjasdhj\",\n    \"email\": \"hendro.kurniawan@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
